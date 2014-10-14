@@ -1,3 +1,103 @@
-<h1>Home#index</h1>
-<%= @url %><br/>
-<%= @response %>
+<div class="hero">
+	<div class="hero-inner">
+    <a href="" class="hero-logo"><img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png
+" alt="Logo Image"></a>
+		<div class="hero-copy">
+			<h1>LOL API TEST</h1>
+			<p>STATS FOR LOL</p>
+		</div>
+
+	</div>
+</div>
+
+
+
+<p>Summoner Id: <%= @id %></p>
+<p>Summoner Name: <%= @name %></p>
+<p>Profile Icon Id: <%= @profileIconId %></p>
+<p>Level: <%= @summonerLevel %></p>
+
+<script type="text/javascript"> $(document).ready(function () {
+  $('.accordion-tabs-minimal').each(function(index) {
+    $(this).children('li').first().children('a').addClass('is-active').next().addClass('is-open').show();
+  });
+
+  $('.accordion-tabs-minimal').on('click', 'li > a', function(event) {
+    if (!$(this).hasClass('is-active')) {
+      event.preventDefault();
+      var accordionTabs = $(this).closest('.accordion-tabs-minimal')
+      accordionTabs.find('.is-open').removeClass('is-open').hide();
+
+      $(this).next().toggleClass('is-open').toggle();
+      accordionTabs.find('.is-active').removeClass('is-active');
+      $(this).addClass('is-active');
+    } else {
+      event.preventDefault();
+    }
+  });
+});
+</script>
+
+
+
+<ul class="accordion-tabs-minimal">
+<% @counter = 0 %>
+
+<% @games.each do |game| %>
+<% @counter += 1 %>
+<li class="tab-header-and-content">
+  <%if @counter == 1%>
+    <a href="#" class="tab-link is-active"><%= game["gameId"] %></a>
+  <% else %>
+    <a href="#" class="tab-link"><%= game["gameId"] %></a>
+  <% end %>
+  <div class="tab-content">
+    <p>Game ID: <%= game["gameId"] %> </p>
+    <p>Game Type: <%= game["gameType"] %> </p>
+    <p>Game sub-type: <%= game["subType"] %> </p>
+    <p>Team ID: <%= game["teamId"] %> </p>
+    <p>Champion ID: <%= game["championId"] %> </p>
+    <p>Summoner Spells: <%= game["spell1"] %>, <%= game["spell2"] %> </p>
+    <p>Ip Earned: <%= game["ipEarned"] %> </p>
+    <p>Champion Level: <%= game["stats"]["level"] %> </p>
+    <p>Gold Earned: <%= game["stats"]["goldEarned"] %> </p>
+    <p>Gold Spent: <%= game["stats"]["goldSpent"] %> </p>
+    <p>Kills: <%= game["stats"]["championsKilled"] %> </p>
+    <p>Deaths: <%= game["stats"]["numDeaths"] %> </p>
+    <p>Assists: <%= game["stats"]["assists"] %> </p>
+    <p>Turrets Destroyed: <%= game["stats"]["turretsKilled"] %> </p>
+    <p>Minions Killed: <%= game["stats"]["minionsKilled"] %> </p>
+    <p>Total Damage Dealt: <%= game["stats"]["totalDamageDealt"] %> </p>
+    <p>Total Damage Taken: <%= game["stats"]["totalDamageTaken"] %> </p>
+    <p>Physical Damage Dealt to Players: <%= game["stats"]["physicalDamageDealtPlayer"] %> </p>
+    <p>True Damage Dealt to Players: <%= game["stats"]["trueDamageDealtPlayer"] %> </p>
+    <p>Magic Damage Dealt to Players: <%= game["stats"]["magicDamageDealtPlayer"] %> </p>
+    <p>Physical Damage Taken: <%= game["stats"]["physicalDamageTaken"] %> </p>
+    <p>True Damage Taken: <%= game["stats"]["trueDamageTaken"] %> </p>
+    <p>Magic Damage Taken: <%= game["stats"]["magicDamageTaken"] %> </p>
+    <p>Double Kills: <%= game["stats"]["doubleKills"] %> </p>
+    <p>Killing Sprees: <%= game["stats"]["killingSprees"] %> </p>
+    <p>Largest Killing Spree: <%= game["stats"]["largestKillingSpree"] %> </p>
+    <p>Largest Multi-kill: <%= game["stats"]["largestMultiKill"] %> </p>
+    <p>Game Length: <%= game["stats"]["timePlayed"] %> </p>
+    <p>Victory: <%= game["stats"]["win"] %> </p>
+    <p>Total Neutral Monsters Killed: <%= game["stats"]["neutralMinionsKilled"] %> </p>
+    <p>Enemy Jungle Neutral Monsters Killed: <%= game["stats"]["neutralMinionsKilledEnemyJungle"] %> </p>
+    <p>Own Jungle Neutral Monsters Killed: <%= game["stats"]["neutralMinionsKilledYourJungle"] %> </p>
+    <p>Total Time Crowd Control Dealt: <%= game["stats"]["totalTimeCrowdControlDealt"] %> </p>
+    <p>Total Heal: <%= game["stats"]["totalHeal"] %> </p>
+    <p>Trinket: <%= game["stats"]["item0"] %> </p>
+    <p>Item 1: <%= game["stats"]["item1"] %> </p>
+    <p>Item 2: <%= game["stats"]["item2"] %> </p>
+    <p>Item 3: <%= game["stats"]["item3"] %> </p>
+    <p>Item 4: <%= game["stats"]["item4"] %> </p>
+    <p>Item 5: <%= game["stats"]["item5"] %> </p>
+    <p>Item 6: <%= game["stats"]["item6"] %> </p>
+    <p>Vision Wards Bought: <%= game["stats"]["visionWardsBought"] %> </p>
+    <p>Wards Killed: <%= game["stats"]["wardKilled"] %> </p>
+    <p>Wards Placed: <%= game["stats"]["wardPlaced"] %> </p>
+  </div>
+</li>
+
+<% end%>
+</ul>

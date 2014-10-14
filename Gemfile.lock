@@ -28,6 +28,13 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    bitters (0.10.1)
+      bourbon (>= 3.2)
+      sass (>= 3.2)
+      thor
+    bourbon (3.2.3)
+      sass (~> 3.2)
+      thor
     builder (3.2.2)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -52,6 +59,9 @@ GEM
     mime-types (2.3)
     minitest (5.4.2)
     multi_json (1.10.1)
+    neat (1.4.0)
+      bourbon (>= 2.1)
+      sass (>= 3.2)
     netrc (0.7.7)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -112,9 +122,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bitters
+  bourbon
   coffee-rails (~> 4.0.0)
   jbuilder (~> 2.0)
   jquery-rails
+  neat
   rails (= 4.1.6)
   rest-client
   sass-rails (~> 4.0.3)
