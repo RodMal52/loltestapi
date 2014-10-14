@@ -6,7 +6,7 @@ require 'json'
 
 class HomeController < ApplicationController
   def index
-      @api_key = 'api_key=fd609a75-8aa4-4242-b09c-10c11e722804'
+      @api_key = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     def getSummoner(name)
       @url = 'https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name'
       endpoint = name
